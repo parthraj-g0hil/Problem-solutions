@@ -1,0 +1,27 @@
+SUSEConnect --de-register
+
+SUSEConnect -l
+
+zypper refresh
+
+
+
+zypper lr
+
+zypper lu
+
+zypper update 
+
+reboot
+
+rpm -q zypper-migration-plugin
+if not installed then install using
+zypper install zypper-migration-plugin
+
+zypper migration
+
+reboot
+
+
+
+nvme id-ctrl -v /dev/nvme5n1 | grep vol
