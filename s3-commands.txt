@@ -1,0 +1,122 @@
+# Creating a text file with AWS S3 CLI commands and their descriptions
+
+
+1. Create a Bucket
+Command:
+aws s3 mb s3://your-bucket-name
+Example:
+aws s3 mb s3://my-unique-bucket-name
+
+2. List Buckets
+Command:
+aws s3 ls
+Example:
+aws s3 ls
+
+3. Upload a File
+Command:
+aws s3 cp local-file-path s3://your-bucket-name/
+Example:
+aws s3 cp myfile.txt s3://my-unique-bucket-name/
+
+4. Download a File
+Command:
+aws s3 cp s3://your-bucket-name/remote-file-name local-file-path
+Example:
+aws s3 cp s3://my-unique-bucket-name/myfile.txt ./downloaded-myfile.txt
+
+5. Sync Directories
+Command:
+aws s3 sync local-directory-path s3://your-bucket-name/
+Example:
+aws s3 sync ./my-local-directory s3://my-unique-bucket-name/
+
+6. List Objects in a Bucket
+Command:
+aws s3 ls s3://your-bucket-name/
+Example:
+aws s3 ls s3://my-unique-bucket-name/
+
+7. Delete a File
+Command:
+aws s3 rm s3://your-bucket-name/remote-file-name
+Example:
+aws s3 rm s3://my-unique-bucket-name/myfile.txt
+
+8. Delete a Bucket
+Command:
+aws s3 rb s3://your-bucket-name --force
+Example:
+aws s3 rb s3://my-unique-bucket-name --force
+
+9. Copy an Object
+Command:
+aws s3 cp s3://source-bucket/source-file s3://destination-bucket/destination-file
+Example:
+aws s3 cp s3://my-source-bucket/myfile.txt s3://my-destination-bucket/myfile-copy.txt
+
+10. Move an Object
+Command:
+aws s3 mv s3://source-bucket/source-file s3://destination-bucket/destination-file
+Example:
+aws s3 mv s3://my-source-bucket/myfile.txt s3://my-destination-bucket/myfile-moved.txt
+
+11. Set Bucket Policy
+Command:
+aws s3api put-bucket-policy --bucket your-bucket-name --policy file://policy.json
+Example:
+aws s3api put-bucket-policy --bucket my-unique-bucket-name --policy file://bucket-policy.json
+
+12. Get Bucket Policy
+Command:
+aws s3api get-bucket-policy --bucket your-bucket-name
+Example:
+aws s3api get-bucket-policy --bucket my-unique-bucket-name
+
+13. Enable Versioning
+Command:
+aws s3api put-bucket-versioning --bucket your-bucket-name --versioning-configuration Status=Enabled
+Example:
+aws s3api put-bucket-versioning --bucket my-unique-bucket-name --versioning-configuration Status=Enabled
+
+14. Disable Versioning
+Command:
+aws s3api put-bucket-versioning --bucket your-bucket-name --versioning-configuration Status=Suspended
+Example:
+aws s3api put-bucket-versioning --bucket my-unique-bucket-name --versioning-configuration Status=Suspended
+
+15. Get Object Metadata
+Command:
+aws s3api head-object --bucket your-bucket-name --key remote-file-name
+Example:
+aws s3api head-object --bucket my-unique-bucket-name --key myfile.txt
+
+16. Get Bucket Location
+Command:
+aws s3api get-bucket-location --bucket your-bucket-name
+Example:
+aws s3api get-bucket-location --bucket my-unique-bucket-name
+
+17. Set CORS Configuration
+Command:
+aws s3api put-bucket-cors --bucket your-bucket-name --cors-configuration file://cors.json
+Example:
+aws s3api put-bucket-cors --bucket my-unique-bucket-name --cors-configuration file://cors.json
+
+18. Get CORS Configuration
+Command:
+aws s3api get-bucket-cors --bucket your-bucket-name
+Example:
+aws s3api get-bucket-cors --bucket my-unique-bucket-name
+
+19. Copy a Folder
+Command:
+aws s3 cp s3://your-bucket-name/folder/ s3://destination-bucket/folder/ --recursive
+Example:
+aws s3 cp s3://my-unique-bucket-name/my-folder/ s3://my-destination-bucket/my-folder/ --recursive
+
+20. Get Bucket ACL
+Command:
+aws s3api get-bucket-acl --bucket your-bucket-name
+Example:
+aws s3api get-bucket-acl --bucket my-unique-bucket-name
