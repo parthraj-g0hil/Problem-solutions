@@ -42,8 +42,24 @@
 
 
 
+
+
+
+
+
+
+
 ********command**********
 aws datasync create-location-s3 --s3-bucket-arn arn:aws:s3:::magazine-arzooo STANDARD --s3-config BucketAccessRoleArn="arn:aws:iam::145023133364:role/datasync-role" --region ap-south-1
+
+
+
+
+
+
+
+
+
 
 
 **********iam datasync role policy source &destination*********
