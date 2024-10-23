@@ -18,8 +18,8 @@
                	"s3:GetObject"
    		   ],
    		   "Resource": [
-       	  	"arn:aws:s3:::uadmin-sourcebucket",
-       	  	"arn:aws:s3:::uadmin-sourcebucket/*"
+       	  	"arn:aws:s3:::homeyantra-test-static",
+       	  	"arn:aws:s3:::homeyantra-test-static/*"
    		   ]
      },
      {
@@ -30,8 +30,8 @@
                	"s3:PutObjectAcl"
              	],
    		     "Resource": [
-       	  	"arn:aws:s3:::uadmin-destinationbucket",
-       	  	"arn:aws:s3:::uadmin-destinationbucket/*"
+       	  	"arn:aws:s3:::homeyantra-test-static-homeyantra",
+       	  	"arn:aws:s3:::homeyantra-test-static-homeyantra/*"
    		     ]
        	}
    	]

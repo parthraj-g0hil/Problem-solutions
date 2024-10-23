@@ -17,7 +17,7 @@
 	openssl req -config /etc/pki/tls/openssl.cnf -new -key www.your-domain-name.com.key -out www.your-domain-name.com.csr ----->> for csr
 	openssl x509 -config /etc/pki/tls/openssl.cnf -new -key www.your-domain-name.com.key -out www.your-domain-name.com.crt ----->> for cer
 
-
+	openssl req -newkey rsa:2048 -nodes -keyout example.com.key -out example.com.csr
 
 
 
