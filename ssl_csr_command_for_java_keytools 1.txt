@@ -12,12 +12,17 @@
 	The Root Certificate - TrustedRoot.crt
 
 
+
+
+
 +++++++++++++++Generate csr and key++++++++++++
 	openssl genrsa -des3 -out www.your-domain-name.key 2048
 	openssl req -config /etc/pki/tls/openssl.cnf -new -key www.your-domain-name.com.key -out www.your-domain-name.com.csr ----->> for csr
 	openssl x509 -config /etc/pki/tls/openssl.cnf -new -key www.your-domain-name.com.key -out www.your-domain-name.com.crt ----->> for cer
 
 	openssl req -newkey rsa:2048 -nodes -keyout example.com.key -out example.com.csr
+
+
 
 
 
@@ -33,8 +38,12 @@
 
 
 
+
+
 ++++++++++++++++++++++for add two crt into one++++++++++++++++
 	cat one.crt two.crt >> my.crt 	
+
+
 
 
 
@@ -49,19 +58,27 @@
 
 
 
-********************************************************************************************************************************************
-++++++++++++Run below command for add the certificate on server (JDK)+++++++++++
+
+	
+++++++++++++++++++++++++++++++++Run below command for add the certificate on server (JDK)+++++++++++++++++++++++++++++++
 cd /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.312.b07-1.amzn2.0.2.x86_64 
 
 keytool -importcert -trustcacerts -alias instantmseloans-certificate -file "/root/ssl_2022/instantmseloans-in.crt" -keystore  jre/lib/security/cacerts -storepass changeit
 
 keytool -importcert -trustcacerts -alias instantmseloans-bundle -file "/root/ssl_2022/gd_bundle-g2-g1.crt" -keystore  jre/lib/security/cacerts -storepass changeit
 
+
+
+
+
 update-ca-trust
 
 ========================================================
 Delete files from current directory  -  argument too long list 
 find . -name "*.pdf" -print0 | xargs -0 rm
+
+
+
 
 
 
@@ -76,11 +93,17 @@ openssl req -config /etc/pki/tls/openssl.cnf -new -key www. domain-name.com.key 
 
 
 
+
+
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Update or Install SSL Certificate on APP Server.
 
 cd /etc/pki/ca-trust/source/anchors/
 update-ca-trust extract
+
+
+
+
 
 
 
@@ -90,11 +113,52 @@ ps -o ppid= -p 4567
 kill -9 1234
 
 
+
+
+
+
 +++++++++++++make full chain +++++++++++=
 
 cat domain.crt gd_bundle.crt > fullchain.pem
 
  
 
+
+
+
 ++++++++++++++++++pem to ppk converter+++++++++++++++++++
 puttygen mykey.pem -o mykey.ppk
+
+
+
+
+
+
+
+
+How to generate SSL/TLS certificate?
+
+To generate a certificate we use the OpenSSL tool.
+
+
+generate private key 
+using private key , generate csr 
+using private key  and  csr , generate crt  
+
+
+
+Generate a private key
+openssl genpkey -algorithm RSA -out example_com.key -aes256
+
+
+
+Certificate Signing Request
+openssl req -new -key example_com.key -out example_com.csr
+
+
+CA or Self-Signed Certificate?
+openssl x509 -req -in example_com.csr -signkey example_com.key -out example_com.crt
+
+
+
+
