@@ -1,5 +1,0 @@
-connect vpn from cli 
-
-example->
-sudo openvpn --config /home/parthraj/pem-keys/vpn/emc-comsec.ovpn 
-
